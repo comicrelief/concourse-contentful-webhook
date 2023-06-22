@@ -14,14 +14,16 @@ const jsonStdin = () => {
     });
   });
 };
+
 const jsonStdout = (val) => {
   process.stdout.write(JSON.stringify(val));
 }
+
 const logError = (val) => {
   process.stderr.write(val.toString() + "\n");
 }
 
-/* Content Review functionality: */
+// /* Content Review functionality: */
 const checkReviewDate = async (dateToReview, pageTitle, pagePath, token) => {
   // Slack setup:
   const slackWebhookUrl = `https://hooks.slack.com/services/${token}`;
@@ -51,6 +53,6 @@ const checkReviewDate = async (dateToReview, pageTitle, pagePath, token) => {
 module.exports = {
   logError,
   jsonStdin,
-  jsonStdout,
-  checkReviewDate
+  checkReviewDate,
+  jsonStdout
 };
